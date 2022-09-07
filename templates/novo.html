@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classificação das Series</title>
+
+    <!-- Reset CSS -->
+    <link rel="stylesheet" href="reset.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <div class="page-header">
+            <h1>{{ titulo|title }}</h1>
+        </div>
+        <form>
+            <fieldset>
+                <div class="form-group">
+                    <label for="nome">Nome</label>
+                    <input type="text" id="nome" name="nome" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="categoria">Categoria</label>
+                    <input type="text" id="categoria" name="categoria" class="form-control">
+                </div>
+                <div class="form-group">
+                    <label for="plataforma">Plataforma</label>
+                    <input type="text" id="plataforma" name="plataforma" class="form-control">
+                </div>
+                <button type="submit" class="btn btn-primary btn-salvar">Salvar</button>
+            </fieldset>
+        </form>
+    </div>
+</body>
+</html>
