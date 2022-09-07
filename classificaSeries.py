@@ -17,8 +17,8 @@ lista = [serie1, serie2, serie3]
 app = Flask(__name__)
 
 
-@app.route('/inicio')
-def index():
+@app.route('/lista')
+def lista():
     return render_template('lista.html', titulo='series', series=lista)
 
 
@@ -27,14 +27,14 @@ def novo():
     return render_template('novo.html', titulo='nova seria')
 
 
-@app.route('/criar')
+@app.route('/criar', methods=['POST',])
 def criar():
     nome = request.form['nome']
     categoria = request.form['categoria']
-    plataforma = request.form['plataaforma']
+    plataforma = request.form['plataforma']
     serie = Serie(nome, categoria, plataforma)
     lista.append(serie)
     return render_template('lista.html', titulo='Series', series=lista)
 
 
-app.run()
+app.run(debug=True)

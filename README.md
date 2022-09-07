@@ -20,3 +20,8 @@ upper: Colocal os caracteres em caixa alta;
 round: Arredonda os números;
 trim: Remover espaços do início e do fim do texto;
 default('texto exibido por padrão'): Quando queremos mostrar algo, caso a variável esteja vazia ou nula;
+
+---
+
+Fonte de conhecimento:
+Alura - alura.com.br
