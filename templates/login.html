@@ -2,17 +2,15 @@
 <html lang="pt-br">
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Classificação das Series</title>
+    <title>Series</title>
 
-    <!-- Reset CSS -->
+     <!-- Reset CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
-    <div class="container">
+    <div class="contaienr">
 
         {% with messages = get_flashed_messages() %}
             {% if messages %}
@@ -24,12 +22,12 @@
             {% endif %}
         {% endwith %}
 
-        <div class="page-header">
-            <h1>{{ titulo|title }}</h1>
-        </div>
-
-      {% block conteudo %}{% endblock conteudo %}
-
+        <h1>Faça seu login</h1>
+        <form method="POST" action="/autenticar">
+            <p><label>Nome de usuário:</label><input type="text" name="usuario" class="form-control"></p>
+            <p><label>Senha:</label><input type="password" name="senha" class="form-control"></p>
+            <p><button class="btn btn-primary" type="submit">Entrar</button></p>
+        </form>
     </div>
 </body>
 </html>

@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 
 
 class Serie:
@@ -14,6 +14,7 @@ serie3 = Serie('Hanna', 'acao', 'Prime Video')
 lista = [serie1, serie2, serie3]
 
 app = Flask(__name__)
+app.secret_key = 'alura'
 
 
 @app.route('/')
@@ -34,6 +35,22 @@ def criar():
     serie = Serie(nome, categoria, plataforma)
     lista.append(serie)
     return redirect('/')
+
+
+@app.route('/login')
+def login():
+    return render_template('login.html')
+
+
+@app.route('/autenticar', methods=['POST',])
+def autenticar():
+    if '123456' == request.form['senha']:
+        session['usuario_logado'] = request.form['usuario']
+        flash(session['usuario_logado'] + 'Usuário logado com sucesso!')
+        return redirect('/')
+    else:
+        flash('Usuário não logado!')
+        return redirect('/login')
 
 
 app.run(debug=True)
