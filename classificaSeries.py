@@ -23,7 +23,7 @@ def index():
 
 @app.route('/novo')
 def novo():
-    return render_template('novo.html', titulo='nova seria')
+    return render_template('novo.html', titulo='nova serie')
 
 
 @app.route('/criar', methods=['POST',])
