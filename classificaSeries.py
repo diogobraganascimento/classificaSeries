@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, redirect
 
 
 class Serie:
@@ -33,7 +33,7 @@ def criar():
     plataforma = request.form['plataforma']
     serie = Serie(nome, categoria, plataforma)
     lista.append(serie)
-    return render_template('lista.html', titulo='Series', series=lista)
+    return redirect('/')
 
 
 app.run(debug=True)
