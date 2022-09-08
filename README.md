@@ -15,11 +15,29 @@
 
 ---
 Ajustes no código HTML
-title: Coloca o primeiro caracter em maiúscola;
-upper: Colocal os caracteres em caixa alta;
-round: Arredonda os números;
-trim: Remover espaços do início e do fim do texto;
-default('texto exibido por padrão'): Quando queremos mostrar algo, caso a variável esteja vazia ou nula;
+> title: Coloca o primeiro caracter em maiúscola;
+
+> upper: Colocal os caracteres em caixa alta;
+
+>round: Arredonda os números;
+
+>trim: Remover espaços do início e do fim do texto;
+
+>default('texto exibido por padrão'): Quando queremos mostrar algo, caso a variável esteja vazia ou nula;
+
+---
+
+#### classificaSerie
+- static
+  - reset.css
+  - style.css
+- templates
+  - list.html
+  - novo.html
+  - template.html
+- cassificaSeries.py
+- README.md
+- requirementes.txt
 
 ---
 
