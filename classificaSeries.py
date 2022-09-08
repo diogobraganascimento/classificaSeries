@@ -8,17 +8,16 @@ class Serie:
         self.plataforma = plataforma
 
 
-serie1 = Serie('Luis Miguel', 'BiogrÃ¡fica', 'netflix')
+serie1 = Serie('Luis Miguel', 'biografia', 'netflix')
 serie2 = Serie('The Witcher', 'Fantasia', 'Netflix')
-serie3 = Serie('Hanna', 'aÃ§Ã£o', 'Prime Video')
+serie3 = Serie('Hanna', 'acao', 'Prime Video')
 lista = [serie1, serie2, serie3]
-
 
 app = Flask(__name__)
 
 
-@app.route('/lista')
-def lista():
+@app.route('/')
+def index():
     return render_template('lista.html', titulo='series', series=lista)
 
 
