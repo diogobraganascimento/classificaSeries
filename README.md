@@ -8,10 +8,11 @@
 
 ### Tecnologias utilizadas: 
 
-|descrição | versão | documentação |
-|----------|--------|--------------|
-|python | 3.10.7 | https://www.python.org/ | 
-|Flask | 2.0.2  | https://flask.palletsprojects.com/en/2.2.x/ |
+|descrição | versão | documentação                                    |
+|----------|--------|-------------------------------------------------|
+|python | 3.10.7 | https://www.python.org/                         | 
+|Flask | 2.0.2  | https://flask.palletsprojects.com/en/2.2.x/     |
+|Flask-Mysqldb | 0.2.0 | https://flask-mysqldb.readthedocs.io/en/latest/ |
 
 ---
 ### Instalação:
@@ -50,6 +51,8 @@ Ajustes no código HTML
   - novo.html
   - template.html
 - cassificaSeries.py
+- dao.py - 'data access object'
+- prepara_banco
 - README.md
 - requirementes.txt
 
