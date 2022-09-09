@@ -24,6 +24,7 @@
 
         <h1>Faça seu login</h1>
         <form method="POST" action="/autenticar">
+            <input type="hidden" name="proxima" value="{{ proxima }}">
             <p><label>Nome de usuário:</label><input type="text" name="usuario" class="form-control"></p>
             <p><label>Senha:</label><input type="password" name="senha" class="form-control"></p>
             <p><button class="btn btn-primary" type="submit">Entrar</button></p>

@@ -14,6 +14,19 @@
 |Flask | 2.0.2  | https://flask.palletsprojects.com/en/2.2.x/ |
 
 ---
+### Instalação:
+> Criar ambiente virtual:<br>
+> python3 -m venv 'nome_do_ambiente';
+
+> Ativar o ambiente: <br>
+> windows: 'nome_do_ambiente'\Scripts\activate <br>
+> Linux ou Mac: source 'nome_do_ambiente'/bin/activate
+
+> Instalar as dependências: <br>
+> pip install -r requirements.txt
+
+
+---
 Ajustes no código HTML
 > title: Coloca o primeiro caracter em maiúscola;
 
@@ -33,6 +46,7 @@ Ajustes no código HTML
   - style.css
 - templates
   - list.html
+  - login.html
   - novo.html
   - template.html
 - cassificaSeries.py
