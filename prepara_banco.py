@@ -1,6 +1,12 @@
-import MySQLdb
+import psycopg2
 print('Conectando...')
-conn = MySQLdb.connect(user='root', passwd='admin', host='127.0.0.1', port=3306)
+conn = psycopg2.connect(
+      host="localhost",
+      database="classificaSerie",
+      port="5432",
+      user='admin',
+      password='admin'
+      )
 
 # Descomente se quiser desfazer o banco...
 conn.cursor().execute("DROP DATABASE `classificaSerie`;")
