@@ -6,6 +6,7 @@
                     <th>Nome</th>
                     <th>Categoria</th>
                     <th>Plataforma</th>
+                    <th></th>
                 </tr>
             </thead>
             <tbody>
@@ -14,6 +15,7 @@
                     <td>{{ serie.nome|title }}</td>
                     <td>{{ serie.categoria|title }}</td>
                     <td>{{ serie.plataforma|title }}</td>
+                    <td><a href="{{ url_for('editar', id=serie.id) }}">Editar</a></td>
                 </tr>
                 {% endfor %}
             </tbody>

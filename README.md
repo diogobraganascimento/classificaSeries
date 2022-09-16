@@ -26,6 +26,17 @@
 > Instalar as dependências: <br>
 > pip install -r requirements.txt
 
+### Instalação MySQL
+> MacOS <br>
+> brew install mysql <br>
+> pip3 install mysqlclient <br>
+
+> Ubuntu <br>
+> sudo apt-get install libmysqlclient-dev <br>
+> pip3 install mysqlclient <br>
+
+> Windows <br>
+> pip3.exe install mysqlclient <br>
 
 ---
 Ajustes no código HTML
