@@ -1,4 +1,4 @@
-from classificaSeries import Serie, Usuario
+from models import Serie, Usuario
 
 SQL_DELETA_SERIE = 'delete from serie where id = %s'
 SQL_SERIE_POR_ID = 'SELECT id, nome, categoria, plataforma from serie where id = %s'

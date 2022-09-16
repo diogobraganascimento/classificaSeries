@@ -1,11 +1,21 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
+from models import Serie, Usuario
+from dao import SerieDao
+from flask_mysqldb import MySQL
 
 
-class Serie:
-    def __init__(self, nome, categoria, plataforma):
-        self.nome = nome
-        self.categoria = categoria
-        self.plataforma = plataforma
+app = Flask(__name__)
+app.secret_key = 'alura'
+
+app.config['MYSQL_HOST'] = "127.0.0.1"
+app.config['MYSQL_USER'] = "root"
+app.config['MYSQL_PASSWORD'] = "root"
+app.config['MYSQL_DB'] = "classificaSeries"
+app.config['MYSQL_PORT'] = 3306
+
+db = MySQL(app)
+
+serie_dao = SerieDao(db)
 
 
 serie1 = Serie('Luis Miguel', 'biografia', 'netflix')
@@ -13,26 +23,16 @@ serie2 = Serie('The Witcher', 'Fantasia', 'Netflix')
 serie3 = Serie('Hanna', 'acao', 'Prime Video')
 lista = [serie1, serie2, serie3]
 
-
-class Usuario:
-    def __init__(self, nome, nickname, senha):
-        self.nome = nome
-        self.nickname = nickname
-        self.senha = senha
-
-
 usuario1 = Usuario("Diogo Nascimento", "dbn", "123456")
 usuario2 = Usuario("Paula Cabral", "pc", "abcdef")
 usuario3 = Usuario("Aquiles Alves", "aa", "123abc")
+
 
 usuarios = {
     usuario1.nickname: usuario1,
     usuario2.nickname: usuario2,
     usuario3.nickname: usuario3
     }
-
-app = Flask(__name__)
-app.secret_key = 'alura'
 
 
 @app.route('/')
@@ -53,7 +53,7 @@ def criar():
     categoria = request.form['categoria']
     plataforma = request.form['plataforma']
     serie = Serie(nome, categoria, plataforma)
-    lista.append(serie)
+    serie_dao.salvar(serie)
     return redirect(url_for('index'))
 
 
