@@ -52,7 +52,12 @@ def editar(id):
 
 @app.route('/atualizar', methods=['POST',])
 def atualizar():
-    pass
+    nome = request.form['nome']
+    categoria = request.form['categoria']
+    plataforma = request.form['plataforma']
+    serie = Serie(nome, categoria, plataforma, id=request.form['id'])
+    serie_dao.salvar(serie)
+    return redirect(url_for('index'))
 
 
 @app.route('/login')
