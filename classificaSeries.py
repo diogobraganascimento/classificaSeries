@@ -1,6 +1,6 @@
 from flask import Flask, render_template, request, redirect, session, flash, url_for
 from models import Serie, Usuario
-from dao import SerieDao
+from dao import SerieDao, UsuarioDao
 from flask_mysqldb import MySQL
 
 
@@ -16,27 +16,12 @@ app.config['MYSQL_PORT'] = 3306
 db = MySQL(app)
 
 serie_dao = SerieDao(db)
-
-
-serie1 = Serie('Luis Miguel', 'biografia', 'netflix')
-serie2 = Serie('The Witcher', 'Fantasia', 'Netflix')
-serie3 = Serie('Hanna', 'acao', 'Prime Video')
-lista = [serie1, serie2, serie3]
-
-usuario1 = Usuario("Diogo Nascimento", "dbn", "123456")
-usuario2 = Usuario("Paula Cabral", "pc", "abcdef")
-usuario3 = Usuario("Aquiles Alves", "aa", "123abc")
-
-
-usuarios = {
-    usuario1.nickname: usuario1,
-    usuario2.nickname: usuario2,
-    usuario3.nickname: usuario3
-    }
+usuario_dao = UsuarioDao(db)
 
 
 @app.route('/')
 def index():
+    lista = serie_dao.listar()
     return render_template('lista.html', titulo='series', series=lista)
 
 
@@ -65,11 +50,11 @@ def login():
 
 @app.route('/autenticar', methods=['POST',])
 def autenticar():
-    if request.form['usuario'] in usuarios:
-        usuario = usuarios[request.form['usuario']]
-        if request.form['senha'] == usuario.senha:
-            session['usuario_logado'] = usuario.nickname
-            flash(usuario.nickname + 'Usuário logado com sucesso!')
+    usuario = usuario_dao.buscar_por_id(request.form['usuario'])
+    if usuario:
+        if usuario.senha == request.form['senha']:
+            session['usuario_logado'] = usuario.nome
+            flash(usuario.nome + 'Usuário logado com sucesso!')
             proxima_pagina = request.form['proxima']
             return redirect(proxima_pagina)
     else:
