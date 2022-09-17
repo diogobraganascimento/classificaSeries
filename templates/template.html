@@ -8,8 +8,10 @@
 
     <!-- Reset CSS -->
     <link rel="stylesheet" href="{{ url_for('static', filename='reset.css') }}">
+    <!-- Bootstrap-->
+    <link rel="stylesheet" href="{{ url_for('static', filename='bootstrap.css') }}">
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='app.css') }}">
 </head>
 <body>
     <div class="container">
@@ -31,5 +33,9 @@
       {% block conteudo %}{% endblock conteudo %}
 
     </div>
+
+    <!-- JS e JQUERY-->
+    <script type="text/javascript" src="{{ url_for('static', filename='jquery.js') }}"></script>
+    <script type="text/javascript" src="{{ url_for('static', filename='app.js') }}"></script>
 </body>
 </html>

@@ -1,12 +1,13 @@
 {% extends "template.html" %}
 {% block conteudo %}
+        <a class="btn btn-primary" href="{{ url_for('novo') }}">Nova Serie</a>
         <table class="table table-striped table-responsive table-bordered">
             <thead class="thead-default">
                 <tr>
                     <th>Nome</th>
                     <th>Categoria</th>
                     <th>Plataforma</th>
-                    <th></th>
+                    <th>Ações</th>
                 </tr>
             </thead>
             <tbody>
@@ -15,7 +16,10 @@
                     <td>{{ serie.nome|title }}</td>
                     <td>{{ serie.categoria|title }}</td>
                     <td>{{ serie.plataforma|title }}</td>
-                    <td><a href="{{ url_for('editar', id=serie.id) }}">Editar</a></td>
+                    <td>
+                        <a href="{{ url_for('editar', id=serie.id) }}">Editar</a>
+                        <a href="{{ url_for('deletar', id=serie.id) }}">Deletar</a>
+                    </td>
                 </tr>
                 {% endfor %}
             </tbody>
