@@ -4,7 +4,7 @@ from dao import SerieDao, UsuarioDao
 import os
 import time
 from helpers import deleta_arquivo, recupera_imagem
-from classificaSeries import db, app
+from classificaSeries import db, app, Series
 
 
 serie_dao = SerieDao(db)
@@ -13,7 +13,7 @@ usuario_dao = UsuarioDao(db)
 
 @app.route('/')
 def index():
-    lista = serie_dao.listar()
+    lista = Series.query.order_by(Series.id)
     return render_template('lista.html', titulo='series', series=lista)
 
 
